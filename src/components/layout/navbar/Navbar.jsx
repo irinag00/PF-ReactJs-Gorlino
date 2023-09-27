@@ -2,9 +2,9 @@ import { BiSearch } from "react-icons/bi";
 import CartWidget from "../../common/cartWidget/CartWidget";
 const Navbar = () => {
   return (
-    <header className="bg-white">
-      <nav className="sticky top-0 z-10">
-        <div className="container hidden lg:block">
+    <header className="bg-white shadow-md">
+      <nav className=" sticky top-0">
+        <div className="container hidden lg:block h-full">
           <div className=" md:flex justify-between items-center p-4">
             <a href="#" className="flex items-center">
               <img
@@ -18,7 +18,7 @@ const Navbar = () => {
                 <li className="md:ml-8 text-xl">
                   <a
                     href="#"
-                    className="text-black-800 font-bold hover:text-pink duration-500"
+                    className="text-black-800 font-bold hover:text-pinkLogo duration-500"
                   >
                     Blusas & Tops
                   </a>
@@ -26,7 +26,7 @@ const Navbar = () => {
                 <li className="md:ml-8 text-xl">
                   <a
                     href="#"
-                    className="text-black-800 font-bold hover:text-pink duration-500"
+                    className="text-black-800 font-bold hover:text-pinkLogo duration-500"
                   >
                     Vestidos
                   </a>
@@ -34,7 +34,7 @@ const Navbar = () => {
                 <li className="md:ml-8 text-xl">
                   <a
                     href="#"
-                    className="text-black-800 font-bold hover:text-pink duration-500"
+                    className="text-black-800 font-bold hover:text-pinkLogo duration-500"
                   >
                     Pantalones
                   </a>

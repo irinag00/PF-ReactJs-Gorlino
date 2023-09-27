@@ -1,5 +1,6 @@
 import Home from "./components/pages/home/Home";
 import Navbar from "./components/layout/navbar/Navbar";
+import ItemListContainer from "./components/pages/itemListContainer/ItemListContainer";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
     <div>
       {/* <Home /> */}
       <Navbar />
+      <ItemListContainer nombreTienda={"Obsession"} />
     </div>
   );
 }

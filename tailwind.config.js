@@ -6,7 +6,7 @@ export default {
       colors: {
         accent: "#179957",
         accentDark: "#184D47",
-        pink: "#F62776",
+        pinkLogo: "#F62776",
       },
       container: {
         center: true,
