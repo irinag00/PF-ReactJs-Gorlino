@@ -3,12 +3,11 @@ import Navbar from "./components/layout/navbar/Navbar";
 import ItemListContainer from "./components/pages/itemListContainer/ItemListContainer";
 
 function App() {
+  let tienda = "Obession";
   return (
-    // <h1>bienvenidos</h1>
     <div>
-      {/* <Home /> */}
       <Navbar />
-      <ItemListContainer nombreTienda={"Obsession"} />
+      <ItemListContainer nombreTienda={tienda} />
     </div>
   );
 }
