@@ -6,7 +6,9 @@ const Counter = ({ sumar, restar, counter }) => {
         className="flex-1 h-full flex justify-center items-center cursor-pointer"
         onClick={restar}
       >
-        <IoMdRemove />
+        <button>
+          <IoMdRemove />
+        </button>
       </div>
       <div className="h-full flex justify-center items-center px-2">
         {counter}
@@ -15,7 +17,9 @@ const Counter = ({ sumar, restar, counter }) => {
         className=" flex-1 h-full flex justify-center items-center cursor-pointer"
         onClick={sumar}
       >
-        <IoMdAdd />
+        <button>
+          <IoMdAdd />
+        </button>
       </div>
     </div>
   );
