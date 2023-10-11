@@ -2,45 +2,43 @@ import { BiSearch } from "react-icons/bi";
 import CartWidget from "../../common/cartWidget/CartWidget";
 const Navbar = () => {
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-white shadow-md w-full">
       <nav className=" sticky top-0">
         <div className="container hidden lg:block h-full">
-          <div className=" md:flex justify-between items-center p-4">
-            <a href="#" className="flex items-center">
+          <div className="md:px-10 py-4 px-7 md:flex justify-between items-center p-4">
+            <a href="#" className="flex items-center cursor-pointer">
               <img
                 src="https://res.cloudinary.com/dsdmjhkms/image/upload/v1695835297/litvzfzqvj7qpk6aqtu0.png"
                 className="h-10 mr-3 md:cursor-pointer"
                 alt="Obsession Logo"
               />
             </a>
-            <div>
-              <ul className="md:flex md:items-center gap-3">
-                <li className="md:ml-8 text-xl">
-                  <a
-                    href="#"
-                    className="text-black-800 font-bold hover:text-pinkLogo duration-500"
-                  >
-                    Blusas & Tops
-                  </a>
-                </li>
-                <li className="md:ml-8 text-xl">
-                  <a
-                    href="#"
-                    className="text-black-800 font-bold hover:text-pinkLogo duration-500"
-                  >
-                    Vestidos
-                  </a>
-                </li>
-                <li className="md:ml-8 text-xl">
-                  <a
-                    href="#"
-                    className="text-black-800 font-bold hover:text-pinkLogo duration-500"
-                  >
-                    Pantalones
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <ul className="md:flex md:items-center gap-3">
+              <li className="md:ml-8 text-xl">
+                <a
+                  href="#"
+                  className="text-black-800 font-bold hover:text-pinkLogo duration-500"
+                >
+                  Blusas & Tops
+                </a>
+              </li>
+              <li className="md:ml-8 text-xl">
+                <a
+                  href="#"
+                  className="text-black-800 font-bold hover:text-pinkLogo duration-500"
+                >
+                  Vestidos
+                </a>
+              </li>
+              <li className="md:ml-8 text-xl">
+                <a
+                  href="#"
+                  className="text-black-800 font-bold hover:text-pinkLogo duration-500"
+                >
+                  Pantalones
+                </a>
+              </li>
+            </ul>
             <div className="flex justify-between items-end">
               <div className="relative w-full max-w-[400px] mr-3">
                 <input
