@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <ItemListContainer nombreTienda={tienda} />
+      <ItemListContainer />
       <CounterContainer stock={10} />
     </div>
   );
