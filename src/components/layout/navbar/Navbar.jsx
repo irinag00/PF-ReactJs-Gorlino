@@ -14,7 +14,7 @@ const Navbar = () => {
               />
             </a>
             <ul className="md:flex md:items-center gap-3">
-              <li className="md:ml-8 text-xl">
+              <li className="md:ml-8 text-lg">
                 <a
                   href="#"
                   className="text-black-800 font-bold hover:text-pinkLogo duration-500"
@@ -22,7 +22,7 @@ const Navbar = () => {
                   Blusas & Tops
                 </a>
               </li>
-              <li className="md:ml-8 text-xl">
+              <li className="md:ml-8 text-lg">
                 <a
                   href="#"
                   className="text-black-800 font-bold hover:text-pinkLogo duration-500"
@@ -30,7 +30,7 @@ const Navbar = () => {
                   Vestidos
                 </a>
               </li>
-              <li className="md:ml-8 text-xl">
+              <li className="md:ml-8 text-lg">
                 <a
                   href="#"
                   className="text-black-800 font-bold hover:text-pinkLogo duration-500"
@@ -39,7 +39,7 @@ const Navbar = () => {
                 </a>
               </li>
             </ul>
-            <div className="flex justify-between items-end">
+            <div className="flex justify-between items-end md:flex">
               <div className="relative w-full max-w-[400px] mr-3">
                 <input
                   className="bg-[#f2f3f5] border-none outline-none px-6 py-3 rounded-[30px] w-full"
