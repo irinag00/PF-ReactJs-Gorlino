@@ -49,5 +49,4 @@ const ProductCard = ({ item }) => {
   );
 };
 
-// bg-blue-gray-900/10
 export default ProductCard;
