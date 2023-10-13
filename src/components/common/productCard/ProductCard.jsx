@@ -20,15 +20,12 @@ const ProductCard = ({ item }) => {
         </CardHeader>
         <CardBody>
           <div className="mb-2 items-center text-center">
-            {/* <Typography color="gray" variant="small">
-              {item.category}
-            </Typography> */}
-            <Typography className="text-xl font-bold text-pinkLogo">
+            <Typography className="text-2xl text-black">
               {item.title}
             </Typography>
-            {/* <Typography color="blue-gray" className="font-medium">
-              ${item.price}
-            </Typography> */}
+            <Typography color="gray" className="font-bold text-lg">
+              $ {item.price}
+            </Typography>
           </div>
           <Typography
             variant="small"
@@ -41,8 +38,7 @@ const ProductCard = ({ item }) => {
         <CardFooter className="pt-0 flex mb-2 md:flex justify-between items-center">
           <CounterContainer stock={10} />
           <Button
-            ripple={false}
-            // fullWidth={false}
+            ripple={true}
             className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
           >
             Añadir al carrito
@@ -53,4 +49,5 @@ const ProductCard = ({ item }) => {
   );
 };
 
+// bg-blue-gray-900/10
 export default ProductCard;
