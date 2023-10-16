@@ -1,7 +1,7 @@
 import { IoMdAdd, IoMdRemove } from "react-icons/io";
 const Counter = ({ sumar, restar, counter }) => {
   return (
-    <div className=" flex flex-1 max-w-[100px] items-center h full border text-primary font-medium">
+    <div className=" flex flex-1 max-w-[100px] items-center h full border text-primary font-medium mb-4">
       <div
         className="flex-1 h-full flex justify-center items-center cursor-pointer"
         onClick={restar}

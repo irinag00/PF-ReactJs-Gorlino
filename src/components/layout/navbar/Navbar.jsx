@@ -19,7 +19,7 @@ const Navbar = () => {
                   href="#"
                   className="text-black-800 font-bold hover:text-pinkLogo duration-500"
                 >
-                  Blusas & Tops
+                  Remeras & Tops
                 </a>
               </li>
               <li className="md:ml-8 text-lg">

@@ -4,10 +4,12 @@ import ItemList from "./ItemList";
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
-    const tarea = new Promise((resolve, reject) => {
+    const getProducts = new Promise((resolve, reject) => {
       resolve(products);
     });
-    tarea.then((res) => setItems(res)).catch((error) => console.log(error));
+    getProducts
+      .then((res) => setItems(res))
+      .catch((error) => console.log(error));
   }, []);
   // console.log(items);
   return <ItemList items={items} />;

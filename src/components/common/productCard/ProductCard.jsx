@@ -36,12 +36,12 @@ const ProductCard = ({ item }) => {
           </Typography>
         </CardBody>
         <CardFooter className="pt-0 flex mb-2 md:flex justify-between items-center">
-          <CounterContainer stock={10} />
           <Button
             ripple={true}
+            fullWidth={true}
             className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
           >
-            Añadir al carrito
+            Ver detalle
           </Button>
         </CardFooter>
       </Card>
