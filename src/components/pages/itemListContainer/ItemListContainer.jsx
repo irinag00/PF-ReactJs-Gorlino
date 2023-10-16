@@ -6,14 +6,16 @@ const ItemListContainer = () => {
   const [items, setItems] = useState([]);
   const { categoryName } = useParams();
   useEffect(() => {
+    const filterProducts = products.filter(
+      (product) => product.category === categoryName
+    );
     const getProducts = new Promise((resolve, reject) => {
-      resolve(products);
+      resolve(categoryName ? filterProducts : products);
     });
     getProducts
       .then((res) => setItems(res))
       .catch((error) => console.log(error));
-  }, []);
-  // console.log(items);
+  }, [categoryName]);
   return <ItemList items={items} />;
 };
 
