@@ -3,7 +3,7 @@ import { BsInstagram, BsTwitter, BsFacebook } from "react-icons/bs";
 const Footer = () => {
   return (
     <footer className="relative w-full">
-      <div className="flex flex-col items-center justify-center pt-10 pb-10">
+      <div className="flex flex-col items-center justify-center pt-10 pb-10 ">
         <strong>Sumate a nuestra comunidad</strong>
         <Typography
           variant="small"
