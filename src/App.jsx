@@ -4,17 +4,22 @@ import ItemListContainer from "./components/pages/itemListContainer/ItemListCont
 import CounterContainer from "./components/common/counter/CounterContainer";
 import MobNavbar from "./components/layout/navbar/MobNavbar";
 import ItemDetailContainer from "./components/pages/itemDetailContainer/ItemDetailContainer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CartContainer from "./components/pages/cart/CartContainer";
 
 function App() {
   let tienda = "Obession";
   return (
-    <div>
-      <Navbar />
-      <MobNavbar />
-      <ItemListContainer />
-      {/* <CounterContainer stock={10} /> */}
-      <ItemDetailContainer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Navbar />}>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/cart" element={<CartContainer />} />
+          <Route path="/itemDetail" element={<ItemDetailContainer />} />
+        </Route>
+        <Route path="*" element={<h1> 404 Not Found</h1>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

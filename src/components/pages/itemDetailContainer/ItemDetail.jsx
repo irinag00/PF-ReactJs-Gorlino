@@ -9,7 +9,7 @@ import {
 import CounterContainer from "../../common/counter/CounterContainer";
 const ItemDetail = ({ productSelected }) => {
   return (
-    <section className="pt-32 pb-12 lg-py-32 h-screen flex items-center">
+    <section className="pt-12 pb-12 lg-py-32 flex items-center">
       <div className="container mb-2 mt-2">
         <Card className="flex flex-col lg:flex-row w-full items-center ">
           <CardHeader
