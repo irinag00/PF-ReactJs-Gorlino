@@ -8,18 +8,9 @@ export let products = [
     category: "remera",
     img: "https://www.rapsodia.com.ar/media/catalog/product/9/2/92033_rapsodia_11114925077a_04_1.jpg?quality=100&fit=bounds&height=1500&width=1000",
   },
+
   {
     id: 2,
-    title: "Remera Anne",
-    price: 10000,
-    stock: 10,
-    description:
-      "Remera manga corta confeccionada en crepe de algodón, con moldería boxy y detalle de volados en las mangas.",
-    category: "remera",
-    img: "https://www.rapsodia.com.ar/media/catalog/product/9/1/91667_rapsodia_11114924918a_01_2.jpg?quality=100&fit=bounds&height=1500&width=1000",
-  },
-  {
-    id: 3,
     title: "Vestido Sensuel",
     price: 30000,
     stock: 5,
@@ -29,7 +20,7 @@ export let products = [
     img: "https://www.rapsodia.com.ar/media/catalog/product/9/0/90034_rapsodia_11114924787c_01_2.jpg?quality=100&fit=bounds&height=1500&width=1000",
   },
   {
-    id: 4,
+    id: 3,
     title: "Top Shine Sequins",
     price: 60000,
     stock: 4,
@@ -39,7 +30,7 @@ export let products = [
     img: "https://www.rapsodia.com.ar/media/catalog/product/8/9/89673_rapsodia_11114924807i_38_2.jpg?quality=100&fit=bounds&height=1500&width=1000",
   },
   {
-    id: 5,
+    id: 4,
     title: "Babucha Polis",
     price: 35000,
     stock: 11,
@@ -49,7 +40,7 @@ export let products = [
     img: "https://www.rapsodia.com.ar/media/catalog/product/9/0/90764_rapsodia_11114922768a_01_1.jpg?quality=100&fit=bounds&height=1500&width=1000",
   },
   {
-    id: 6,
+    id: 5,
     title: "Short Gala",
     price: 30000,
     stock: 20,
@@ -57,5 +48,15 @@ export let products = [
       "Short de corte holgado tiro alto con cintura elástica y corte al ruedo. Confeccionado en cuerina.",
     category: "pantalon",
     img: "https://www.rapsodia.com.ar/media/catalog/product/8/9/89699_rapsodia_11114922149a_01_2.jpg?quality=100&fit=bounds&height=1500&width=1000",
+  },
+  {
+    id: 6,
+    title: "Remera Anne",
+    price: 10000,
+    stock: 10,
+    description:
+      "Remera manga corta confeccionada en crepe de algodón, con moldería boxy y detalle de volados en las mangas.",
+    category: "remera",
+    img: "https://www.rapsodia.com.ar/media/catalog/product/9/1/91667_rapsodia_11114924918a_01_2.jpg?quality=100&fit=bounds&height=1500&width=1000",
   },
 ];
