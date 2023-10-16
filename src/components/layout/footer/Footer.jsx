@@ -1,45 +1,63 @@
-import { Typography } from "@material-tailwind/react";
-import { BsInstagram, BsTwitter } from "react-icons/bs";
-import { BiLogoFacebookSquare } from "react-icons/bi";
-
+import { Typography, Input, Button } from "@material-tailwind/react";
+import { BsInstagram, BsTwitter, BsFacebook } from "react-icons/bs";
 const Footer = () => {
   return (
-    <footer className="w-full bg-white p-8">
-      <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
-        <img
-          src="https://res.cloudinary.com/dsdmjhkms/image/upload/v1695835297/litvzfzqvj7qpk6aqtu0.png"
-          alt="logo-obssesion"
-          className="w-20"
-        />
-        <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
-          <li>
+    <footer className="relative w-full">
+      <div className="flex flex-col items-center justify-center pt-10 pb-10">
+        <strong>Sumate a nuestra comunidad</strong>
+        <Typography
+          variant="small"
+          className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
+        >
+          Suscribite, no te pierdas las novedades.
+        </Typography>
+        <div className="relative flex w-full max-w-[24rem] mt-2">
+          <Input
+            type="email"
+            label="Ingresa tu Email"
+            className="pr-20"
+            containerProps={{
+              className: "min-w-0",
+            }}
+          />
+          <Button size="sm" className="!absolute right-1 top-1 rounded">
+            Suscribite
+          </Button>
+        </div>
+      </div>
+      <div className="mx-auto w-full max-w-7xl px-8">
+        <div className="flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
+          <Typography
+            variant="small"
+            className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
+          >
+            &copy; 2023 Irina Gorlino.
+          </Typography>
+          <div className="flex gap-4 text-blue-gray-900 sm:justify-center">
             <Typography
               as="a"
-              color="blue-gray"
-              className="font-normal transition-colors hover:text-pinkLogo focus:text-pinkLogo"
+              href="#"
+              className="opacity-80 transition-opacity hover:opacity-100"
             >
-              ¡Seguinos!
+              <BsFacebook />
             </Typography>
-            <div className="">
-              <ul className="flex gap-2">
-                <li className="cursor-pointer">
-                  <BsInstagram />
-                </li>
-                <li className="cursor-pointer">
-                  <BiLogoFacebookSquare />
-                </li>
-                <li className="cursor-pointer">
-                  <BsTwitter />
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
+            <Typography
+              as="a"
+              href="#"
+              className="opacity-80 transition-opacity hover:opacity-100"
+            >
+              <BsInstagram />
+            </Typography>
+            <Typography
+              as="a"
+              href="#"
+              className="opacity-80 transition-opacity hover:opacity-100"
+            >
+              <BsTwitter />
+            </Typography>
+          </div>
+        </div>
       </div>
-      <hr className="my-8 border-blue-gray-50" />
-      <Typography color="blue-gray" className="text-center font-normal">
-        &copy; 2023 Irina Gorlino
-      </Typography>
     </footer>
   );
 };
