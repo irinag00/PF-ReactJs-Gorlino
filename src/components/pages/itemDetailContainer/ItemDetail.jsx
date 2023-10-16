@@ -7,7 +7,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import CounterContainer from "../../common/counter/CounterContainer";
-const ItemDetail = ({ productSelected }) => {
+const ItemDetail = ({ productSelected, onAdd }) => {
   return (
     <section className="pt-12 pb-12 lg-py-32 flex items-center">
       <div className="container mb-2 mt-2">
@@ -34,21 +34,7 @@ const ItemDetail = ({ productSelected }) => {
               {productSelected.description}
             </Typography>
             <div className="flex justify-center lg:justify-start">
-              <CounterContainer stock={10} />
-            </div>
-            <div className="flex flex-row items-center gap-2 justify-center lg:justify-start mt-5">
-              <Button
-                ripple={true}
-                className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100 w-full lg:max-w-[200px]"
-              >
-                Añadir al carrito
-              </Button>
-              {/* <Button
-                ripple={true}
-                className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
-              >
-                Comprar
-              </Button> */}
+              <CounterContainer stock={productSelected.stock} onAdd={onAdd} />
             </div>
           </CardBody>
         </Card>

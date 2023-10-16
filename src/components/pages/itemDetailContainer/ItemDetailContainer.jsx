@@ -14,8 +14,14 @@ const ItemDetailContainer = () => {
       .then((res) => setProductSelected(res))
       .catch((error) => console.log(error));
   }, [id]);
-  console.log(productSelected);
-  return <ItemDetail productSelected={productSelected} />;
+  const onAdd = (cantidad) => {
+    let obj = {
+      ...productSelected,
+      quantity: cantidad,
+    };
+    console.log("producto agregado al carrito", obj);
+  };
+  return <ItemDetail productSelected={productSelected} onAdd={onAdd} />;
 };
 
 export default ItemDetailContainer;
