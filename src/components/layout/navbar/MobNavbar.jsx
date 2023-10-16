@@ -30,7 +30,6 @@ const MobNavbar = () => {
           </div>
         </nav>
       </header>
-      <Outlet />
     </>
   );
 };

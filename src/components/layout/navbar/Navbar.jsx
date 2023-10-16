@@ -18,7 +18,7 @@ const Navbar = () => {
                 </div>
               </Link>
               <ul className="md:flex md:items-center gap-3">
-                <li className="md:ml-8 text-lg">
+                <li className="md:ml-8 text-lg ">
                   <Link to="/category/remera">
                     <div className="text-black-800 font-bold hover:text-pinkLogo duration-500">
                       Remeras & Tops
@@ -62,7 +62,6 @@ const Navbar = () => {
           </div>
         </nav>
       </header>
-      <Outlet />
     </>
   );
 };
