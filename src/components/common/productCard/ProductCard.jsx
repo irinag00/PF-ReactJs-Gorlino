@@ -6,7 +6,7 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
-import CounterContainer from "../../common/counter/CounterContainer";
+import { Link } from "react-router-dom";
 const ProductCard = ({ item }) => {
   return (
     <div className="group transition">
@@ -35,14 +35,16 @@ const ProductCard = ({ item }) => {
             {item.description}
           </Typography>
         </CardBody>
-        <CardFooter className="pt-0 flex mb-2 md:flex justify-between items-center">
-          <Button
-            ripple={true}
-            fullWidth={true}
-            className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
-          >
-            Ver detalle
-          </Button>
+        <CardFooter className="pt-0 flex mb-2 md:flex justify-between items-center justify-center">
+          <Link to={`/itemDetail/${item.id}`}>
+            <Button
+              ripple={true}
+              fullWidth={true}
+              className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+            >
+              Ver detalle
+            </Button>
+          </Link>
         </CardFooter>
       </Card>
     </div>

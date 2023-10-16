@@ -19,28 +19,25 @@ const Navbar = () => {
               </Link>
               <ul className="md:flex md:items-center gap-3">
                 <li className="md:ml-8 text-lg">
-                  <a
-                    href="#"
-                    className="text-black-800 font-bold hover:text-pinkLogo duration-500"
-                  >
-                    Remeras & Tops
-                  </a>
+                  <Link to="/category/remera">
+                    <div className="text-black-800 font-bold hover:text-pinkLogo duration-500">
+                      Remeras & Tops
+                    </div>
+                  </Link>
                 </li>
                 <li className="md:ml-8 text-lg">
-                  <a
-                    href="#"
-                    className="text-black-800 font-bold hover:text-pinkLogo duration-500"
-                  >
-                    Vestidos
-                  </a>
+                  <Link to="/category/vestido">
+                    <div className="text-black-800 font-bold hover:text-pinkLogo duration-500">
+                      Vestidos
+                    </div>
+                  </Link>
                 </li>
                 <li className="md:ml-8 text-lg">
-                  <a
-                    href="#"
-                    className="text-black-800 font-bold hover:text-pinkLogo duration-500"
-                  >
-                    Pantalones
-                  </a>
+                  <Link to="/category/pantalon">
+                    <div className="text-black-800 font-bold hover:text-pinkLogo duration-500">
+                      Pantalones
+                    </div>
+                  </Link>
                 </li>
               </ul>
               <div className="flex justify-between items-end md:flex">

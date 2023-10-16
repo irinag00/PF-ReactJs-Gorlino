@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { products } from "../../../productsMock";
 import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
 const ItemDetailContainer = () => {
   const [productSelected, setProductSelected] = useState([]);
-  const id = 3;
-  let producto = products.find((product) => product.id === id);
+  const { id } = useParams();
+  let producto = products.find((product) => product.id === +id);
   useEffect(() => {
     const getProducts = new Promise((resolve, reject) => {
       resolve(producto);

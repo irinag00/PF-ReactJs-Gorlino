@@ -1,7 +1,5 @@
-import Home from "./components/pages/home/Home";
 import Navbar from "./components/layout/navbar/Navbar";
 import ItemListContainer from "./components/pages/itemListContainer/ItemListContainer";
-import CounterContainer from "./components/common/counter/CounterContainer";
 import MobNavbar from "./components/layout/navbar/MobNavbar";
 import ItemDetailContainer from "./components/pages/itemDetailContainer/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -13,9 +11,15 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<Navbar />}>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/cart" element={<CartContainer />} />
-          <Route path="/itemDetail" element={<ItemDetailContainer />} />
+          <Route element={<MobNavbar />}>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route
+              path="/category/:categoryName"
+              element={<ItemListContainer />}
+            />
+            <Route path="/cart" element={<CartContainer />} />
+            <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
+          </Route>
         </Route>
         <Route path="*" element={<h1> 404 Not Found</h1>} />
       </Routes>

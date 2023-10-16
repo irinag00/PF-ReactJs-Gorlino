@@ -5,7 +5,7 @@ export let products = [
     price: 15000,
     stock: 12,
     description: "Remera manga corta de moldería holgada y hombros con caída.",
-    category: "blusa",
+    category: "remera",
     img: "https://www.rapsodia.com.ar/media/catalog/product/9/2/92033_rapsodia_11114925077a_04_1.jpg?quality=100&fit=bounds&height=1500&width=1000",
   },
   {
@@ -15,7 +15,7 @@ export let products = [
     stock: 10,
     description:
       "Remera manga corta confeccionada en crepe de algodón, con moldería boxy y detalle de volados en las mangas.",
-    category: "blusa",
+    category: "remera",
     img: "https://www.rapsodia.com.ar/media/catalog/product/9/1/91667_rapsodia_11114924918a_01_2.jpg?quality=100&fit=bounds&height=1500&width=1000",
   },
   {
@@ -35,7 +35,7 @@ export let products = [
     stock: 4,
     description:
       "Top bretelero corto con escote en V. Full bordado en mostacillas, piedras y canutillos dorados.",
-    category: "blusa",
+    category: "remera",
     img: "https://www.rapsodia.com.ar/media/catalog/product/8/9/89673_rapsodia_11114924807i_38_2.jpg?quality=100&fit=bounds&height=1500&width=1000",
   },
   {
