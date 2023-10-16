@@ -5,10 +5,10 @@ import MobNavbar from "./navbar/MobNavbar";
 
 const Layout = () => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col justify-between">
       <Navbar />
       <MobNavbar />
-      <Outlet />
+      <Outlet className="flex-grow" />
       <Footer />
     </div>
   );
