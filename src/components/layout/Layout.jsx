@@ -5,11 +5,17 @@ import MobNavbar from "./navbar/MobNavbar";
 
 const Layout = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-between">
-      <Navbar />
-      <MobNavbar />
-      <Outlet className="flex-grow" />
-      <Footer />
+    <div>
+      <div style={{ height: "10vh" }}>
+        <Navbar />
+        <MobNavbar />
+      </div>
+      <div style={{ minHeight: "70vh" }}>
+        <Outlet className="" />
+      </div>
+      <div style={{ height: "20vh" }}>
+        <Footer />
+      </div>
     </div>
   );
 };

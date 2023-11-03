@@ -2,9 +2,7 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   Typography,
-  Button,
 } from "@material-tailwind/react";
 import CounterContainer from "../../common/counter/CounterContainer";
 const ItemDetail = ({ productSelected, onAdd }) => {
