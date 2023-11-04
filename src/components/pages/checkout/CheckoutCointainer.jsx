@@ -2,14 +2,22 @@ import { useState } from "react";
 import Checkout from "./Checkout";
 
 const CheckoutCointainer = () => {
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+    // province: "",
+    direction: "",
+  });
 
-  const captureName = (event) => {
-    setName(event.target.value);
+  const handleChange = (event) => {
+    setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
   };
-  console.log(name);
-  return <Checkout captureName={captureName} />;
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(userInfo);
+  };
+  return <Checkout handleChange={handleChange} handleSubmit={handleSubmit} />;
 };
 
 export default CheckoutCointainer;

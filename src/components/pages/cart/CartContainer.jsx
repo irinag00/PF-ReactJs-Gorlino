@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
 const CartContainer = () => {
   return (
-    <div className="container flex-glow">
+    <div className="container flex-grow">
       <strong className="flex items-center justify-center mt-10">
         Estoy en el carrito
       </strong>

@@ -1,5 +1,4 @@
 import ProductCard from "../../common/productCard/ProductCard";
-
 const ItemList = ({ items }) => {
   return (
     <div className=" container items-center mt-5 mb-10">
