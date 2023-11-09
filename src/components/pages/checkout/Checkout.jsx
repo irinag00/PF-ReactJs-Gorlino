@@ -8,40 +8,105 @@ import {
   Select,
   Option,
 } from "@material-tailwind/react";
-const Checkout = ({ handleChange, handleSubmit }) => {
+const Checkout = ({ handleChange, handleSubmit, provincias, errors }) => {
   return (
     <div className="container flex justify-center mt-10">
-      <Card className="w-full max-w-[60rem] items-center justify-center">
-        <CardBody className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <Card className="w-full items-center justify-center">
+        <CardBody className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
           <div className="justify-center">
             <form
-              className=" flex flex-col gap-6 md:w-80 w-full justify-center text-center"
+              className="w-full h-full flex flex-col gap-2 w-full justify-center text-center"
               action=""
               onSubmit={handleSubmit}
             >
-              <Input label="Nombre" name="name" onChange={handleChange} />
-              <Input label="Apellido" name="lastName" onChange={handleChange} />
+              <div className="flex gap-1">
+                <div>
+                  <Input
+                    label="Nombre"
+                    name="name"
+                    containerProps={{ className: "min-w-[72px]" }}
+                    onChange={handleChange}
+                    error={errors.name ? true : false}
+                  />
+                  <Typography
+                    variant="small"
+                    color="red"
+                    className="flex flex-col font-normal"
+                  >
+                    {errors.name}
+                  </Typography>
+                </div>
+                <div>
+                  <Input
+                    label="Apellido"
+                    name="lastName"
+                    containerProps={{ className: "min-w-[72px]" }}
+                    onChange={handleChange}
+                    error={errors.lastName ? true : false}
+                  />
+                  <Typography
+                    variant="small"
+                    color="red"
+                    className="flex flex-col font-normal"
+                  >
+                    {errors.lastName}
+                  </Typography>
+                </div>
+              </div>
               <Input
                 label="Email"
                 name="email"
                 type="email"
                 onChange={handleChange}
+                error={errors.email ? true : false}
               />
-              {/* <Select label="Provincia" name="province" onChange={handleChange}>
-                <Option>Material Tailwind HTML</Option>
-                <Option>Material Tailwind React</Option>
-              </Select> */}
+              <Typography
+                variant="small"
+                color="red"
+                className="flex font-normal"
+              >
+                {errors.email}
+              </Typography>
+              <Select name="province" label="Provincia" onChange={handleChange}>
+                {provincias.map((provincia) => (
+                  <Option key={provincia.id} value={provincia.id}>
+                    {provincia.nombre}
+                  </Option>
+                ))}
+                ;
+              </Select>
+              <Input
+                label="Ciudad"
+                name="city"
+                onChange={handleChange}
+                error={errors.city ? true : false}
+              />
+              <Typography
+                variant="small"
+                color="red"
+                className="flex font-normal"
+              >
+                {errors.city}
+              </Typography>
               <Input
                 label="Dirección"
                 name="direction"
                 onChange={handleChange}
+                error={errors.direction ? true : false}
               />
+              <Typography
+                variant="small"
+                color="red"
+                className="flex font-normal"
+              >
+                {errors.direction}
+              </Typography>
               <Button className="color-pinkLogo" type="submit">
                 Comprar
               </Button>
             </form>
           </div>
-          <div className="flex flex-col gap-6">
+          <div className=" flex flex-col gap-6">
             <Typography variant="h3" className="text-pinkLogo">
               Resumen de compra
             </Typography>
