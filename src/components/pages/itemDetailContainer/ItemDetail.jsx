@@ -5,7 +5,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import CounterContainer from "../../common/counter/CounterContainer";
-const ItemDetail = ({ productSelected, onAdd }) => {
+const ItemDetail = ({ productSelected, onAdd, initial }) => {
   return (
     <section className="pt-12 pb-12 lg-py-32 flex items-center">
       <div className="container mb-2 mt-2">
@@ -32,7 +32,11 @@ const ItemDetail = ({ productSelected, onAdd }) => {
               {productSelected.description}
             </Typography>
             <div className="flex justify-center lg:justify-start">
-              <CounterContainer stock={productSelected.stock} onAdd={onAdd} />
+              <CounterContainer
+                stock={productSelected.stock}
+                onAdd={onAdd}
+                initial={initial}
+              />
             </div>
           </CardBody>
         </Card>

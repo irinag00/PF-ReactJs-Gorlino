@@ -8,7 +8,7 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
   const { addToCart, getQuantityById } = useContext(CartContext);
   const navigate = useNavigate();
-  let totalQuantity = getQuantityById(productSelected.id);
+  let totalQuantity = getQuantityById(+id);
   useEffect(() => {
     let producto = products.find((product) => product.id === +id);
     const getProducts = new Promise((resolve, reject) => {
@@ -27,7 +27,13 @@ const ItemDetailContainer = () => {
     addToCart(product);
     navigate("/cart");
   };
-  return <ItemDetail productSelected={productSelected} onAdd={onAdd} />;
+  return (
+    <ItemDetail
+      productSelected={productSelected}
+      onAdd={onAdd}
+      initial={totalQuantity}
+    />
+  );
 };
 
 export default ItemDetailContainer;
