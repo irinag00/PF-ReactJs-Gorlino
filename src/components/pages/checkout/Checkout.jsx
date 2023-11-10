@@ -67,10 +67,15 @@ const Checkout = ({ handleChange, handleSubmit, provincias, errors }) => {
               >
                 {errors.email}
               </Typography>
-              <Select name="province" label="Provincia" onChange={handleChange}>
+              <Select
+                id="province"
+                name="province"
+                label="Provincia"
+                onChange={handleChange}
+              >
                 {provincias.map((provincia) => (
-                  <Option key={provincia.id} value={provincia.id}>
-                    {provincia.nombre}
+                  <Option key={provincia.id} value={provincia.nombre}>
+                    <div className="text-left">{provincia.nombre}</div>
                   </Option>
                 ))}
                 ;

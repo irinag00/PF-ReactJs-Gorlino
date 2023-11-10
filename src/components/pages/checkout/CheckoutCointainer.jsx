@@ -6,7 +6,9 @@ import * as Yup from "yup";
 const CheckoutCointainer = () => {
   const [provincias, setProvincias] = useState([]);
   useEffect(() => {
-    fetch("https://apis.datos.gob.ar/georef/api/provincias")
+    fetch(
+      "https://apis.datos.gob.ar/georef/api/provincias?orden=nombre&aplanar=true&campos=estandar&exacto=true"
+    )
       .then((response) => response.json())
       .then((dataProvince) => setProvincias(dataProvince.provincias));
   }, []);
