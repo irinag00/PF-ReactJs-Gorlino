@@ -1,23 +1,35 @@
 import { useState, useEffect, useContext } from "react";
-import { products } from "../../../productsMock";
+import SkeletonComponent from "../../common/skeleton/SkeletonComponent";
 import ItemDetail from "./ItemDetail";
 import { useParams, useNavigate } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
 import Swal from "sweetalert2";
+import { db } from "../../../firebaseConfig";
+import { getDoc, collection, doc } from "firebase/firestore";
 const ItemDetailContainer = () => {
   const [productSelected, setProductSelected] = useState({});
+  const [isLoading, setIsLoading] = useState(true); // Nuevo estado
+
   const { id } = useParams();
+
   const { addToCart, getQuantityById } = useContext(CartContext);
+
   const navigate = useNavigate();
+
   let totalQuantity = getQuantityById(+id);
+
   useEffect(() => {
-    let producto = products.find((product) => product.id === +id);
-    const getProducts = new Promise((resolve, reject) => {
-      resolve(producto);
-    });
-    getProducts
-      .then((res) => setProductSelected(res))
-      .catch((error) => console.log(error));
+    let productsCollection = collection(db, "products");
+
+    let productDoc = doc(productsCollection, id);
+
+    getDoc(productDoc)
+      .then((response) => {
+        setProductSelected({ id: response.id, ...response.data() });
+      })
+      .finally(() => {
+        setIsLoading(false); // Indicar que la carga ha terminado
+      });
   }, [id]);
   const onAdd = (cantidad) => {
     let product = {
@@ -45,11 +57,29 @@ const ItemDetailContainer = () => {
     navigate("/cart");
   };
   return (
-    <ItemDetail
-      productSelected={productSelected}
-      onAdd={onAdd}
-      initial={totalQuantity}
-    />
+    <>
+      {isLoading ? (
+        <div className="container animate-pulse">
+          {[...Array(1)].map((_, index) => (
+            <SkeletonComponent index={index} />
+          ))}
+          ;
+        </div>
+      ) : (
+        <>
+          <ItemDetail
+            productSelected={productSelected}
+            onAdd={onAdd}
+            initial={totalQuantity}
+          />
+        </>
+      )}
+    </>
+    // <ItemDetail
+    //   productSelected={productSelected}
+    //   onAdd={onAdd}
+    //   initial={totalQuantity}
+    // />
   );
 };
 

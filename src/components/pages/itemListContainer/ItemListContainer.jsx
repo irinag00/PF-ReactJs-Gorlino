@@ -1,30 +1,42 @@
 import { useState, useEffect } from "react";
-import { products } from "../../../productsMock";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import BreadcrumbsComponent from "../../common/breadcrumbs/BreadcrumbsComponent";
 import SkeletonComponent from "../../common/skeleton/SkeletonComponent";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../../../firebaseConfig";
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
   const { categoryName } = useParams();
   useEffect(() => {
-    const filterProducts = products.filter(
-      (product) => product.category === categoryName
-    );
-    const getProducts = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(categoryName ? filterProducts : products);
-      }, 2000);
+    let productsCollection = collection(db, "products");
+    let queryDataBase;
+
+    if (!categoryName) {
+      queryDataBase = productsCollection;
+    } else {
+      queryDataBase = query(
+        productsCollection,
+        where("category", "==", categoryName)
+      );
+    }
+
+    getDocs(queryDataBase).then((response) => {
+      let productsDataBase = response.docs.map((product) => {
+        return { id: product.id, ...product.data() };
+      });
+      setItems(productsDataBase);
     });
-    getProducts
-      .then((res) => setItems(res))
-      .catch((error) => console.log(error));
   }, [categoryName]);
 
   return (
     <>
       {items.length === 0 ? (
-        <SkeletonComponent />
+        <div className="container grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 group transition animate-pulse">
+          {[...Array(6)].map((_, index) => (
+            <SkeletonComponent index={index} />
+          ))}
+          ;
+        </div>
       ) : (
         <>
           <ItemList items={items} />
