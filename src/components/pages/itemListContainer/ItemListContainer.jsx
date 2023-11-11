@@ -33,7 +33,7 @@ const ItemListContainer = () => {
       {items.length === 0 ? (
         <div className="container grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 group transition animate-pulse">
           {[...Array(6)].map((_, index) => (
-            <SkeletonComponent index={index} />
+            <SkeletonComponent key={index} />
           ))}
           ;
         </div>

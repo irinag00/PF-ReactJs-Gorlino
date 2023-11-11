@@ -13,10 +13,9 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
 
   const { addToCart, getQuantityById } = useContext(CartContext);
+  let totalQuantity = getQuantityById(id);
 
   const navigate = useNavigate();
-
-  let totalQuantity = getQuantityById(+id);
 
   useEffect(() => {
     let productsCollection = collection(db, "products");
@@ -36,6 +35,7 @@ const ItemDetailContainer = () => {
       ...productSelected,
       quantity: cantidad,
     };
+    addToCart(product);
     const Toast = Swal.mixin({
       toast: true,
       position: "top-end",
@@ -53,7 +53,6 @@ const ItemDetailContainer = () => {
     });
 
     //ahora navega al carrito
-    addToCart(product);
     navigate("/cart");
   };
   return (
@@ -61,9 +60,8 @@ const ItemDetailContainer = () => {
       {isLoading ? (
         <div className="container animate-pulse">
           {[...Array(1)].map((_, index) => (
-            <SkeletonComponent index={index} />
+            <SkeletonComponent key={index} />
           ))}
-          ;
         </div>
       ) : (
         <>
@@ -75,11 +73,6 @@ const ItemDetailContainer = () => {
         </>
       )}
     </>
-    // <ItemDetail
-    //   productSelected={productSelected}
-    //   onAdd={onAdd}
-    //   initial={totalQuantity}
-    // />
   );
 };
 

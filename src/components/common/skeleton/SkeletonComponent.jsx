@@ -6,8 +6,6 @@ import {
 } from "@material-tailwind/react";
 const SkeletonComponent = ({ index }) => {
   return (
-    // <div className="container grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 group transition animate-pulse">
-    //   {[...Array(6)].map((_, index) => (
     <Card key={index} className="w-90 my-3">
       <CardHeader shadow={false} floated={false} className="h-90">
         <div className="w-full h-60 bg-gray-300 rounded max-sm:w-96"></div>
@@ -20,9 +18,6 @@ const SkeletonComponent = ({ index }) => {
         </div>
       </CardBody>
     </Card>
-    //   ))}
-    //   ;
-    // </div>
   );
 };
 export default SkeletonComponent;

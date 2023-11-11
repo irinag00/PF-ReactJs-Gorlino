@@ -5,19 +5,23 @@ export const CartContext = createContext();
 
 const CartContextComponent = ({ children }) => {
   const [cart, setCart] = useState([]);
+
   const addToCart = (product) => {
     let exist = isInCart(product.id);
+
     if (exist) {
       let elementExist = cart.map((element) => {
         if (element.id === product.id) {
-          return { ...element, quantity: element.quantity + product.quantity };
+          return { ...element, quantity: product.quantity };
         } else {
           return element;
         }
       });
       setCart(elementExist);
+      localStorage.setItem("cart", JSON.stringify(elementExist));
     } else {
       setCart([...cart, product]);
+      localStorage.setItem("cart", JSON.stringify([...cart, product]));
     }
   };
   //funcion si existe el producto en el carrito
