@@ -5,6 +5,7 @@ import {
   Input,
   Typography,
 } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 const Checkout = ({ handleChange, handleSubmit, errors, cart, total }) => {
   let shipping = 2000;
   return (
@@ -142,11 +143,13 @@ const Checkout = ({ handleChange, handleSubmit, errors, cart, total }) => {
                       key={product.id}
                       className="flex justify-between border-t border-blue-gray-50 py-1 "
                     >
-                      <img
-                        className="w-20 rounded-md mt-2"
-                        src={product.img}
-                        alt=""
-                      />
+                      <Link to={`/itemDetail/${product.id}`}>
+                        <img
+                          className="w-20 rounded-md mt-2"
+                          src={product.img}
+                          alt=""
+                        />
+                      </Link>
                       <div className="">
                         <Typography variant="h6" className="items-center">
                           {product.title} x {product.quantity}

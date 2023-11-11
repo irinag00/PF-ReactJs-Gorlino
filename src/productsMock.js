@@ -1,28 +1,5 @@
 export let products = [
   {
-    id: 1,
-    title: "Remera Long Live",
-    price: 15000,
-    stock: 12,
-    description: "Remera manga corta de moldería holgada y hombros con caída.",
-    category: "remera",
-    img: "https://www.rapsodia.com.ar/media/catalog/product/9/2/92033_rapsodia_11114925077a_04_1.jpg?quality=100&fit=bounds&height=1500&width=1000",
-    color: "Azul",
-  },
-
-  {
-    id: 2,
-    title: "Vestido Sensuel",
-    price: 30000,
-    stock: 5,
-    description:
-      "Vestido corto de escote en v pronunciado, con lazos para cerrarlo y acentuarlo.",
-    category: "vestido",
-    img: "https://www.rapsodia.com.ar/media/catalog/product/9/0/90034_rapsodia_11114924787c_01_2.jpg?quality=100&fit=bounds&height=1500&width=1000",
-    color: "Negro",
-  },
-  {
-    id: 3,
     title: "Top Shine Sequins",
     price: 60000,
     stock: 4,
@@ -33,7 +10,6 @@ export let products = [
     color: "Negro",
   },
   {
-    id: 4,
     title: "Babucha Polis",
     price: 35000,
     stock: 11,
@@ -44,7 +20,6 @@ export let products = [
     color: "Negro",
   },
   {
-    id: 5,
     title: "Short Gala",
     price: 30000,
     stock: 20,
@@ -55,7 +30,6 @@ export let products = [
     color: "Negro",
   },
   {
-    id: 6,
     title: "Remera Anne",
     price: 10000,
     stock: 10,
