@@ -49,6 +49,13 @@ const ItemDetail = ({ productSelected, onAdd, initial }) => {
                 <BsCheckLg className="text-green-600" />
               </Typography>
             </div>
+            <div className="mb-4">
+              {initial && (
+                <Typography variant="h6" className="text-pinkLogo">
+                  Ya tienes {initial} unidad/es en el carrito
+                </Typography>
+              )}
+            </div>
             <div className="flex items-center justify-center lg:justify-start">
               <CounterContainer
                 stock={productSelected.stock}

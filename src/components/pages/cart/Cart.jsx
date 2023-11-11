@@ -33,7 +33,9 @@ const Cart = ({ cart, clearCartWithAlert, deleteProductById, total }) => {
             className="relative border-t border-blue-gray-50 py-1"
           >
             <div className="flex my-3 ">
-              <img src={product.img} alt="" className="w-32 rounded-md" />
+              <Link to={`/itemDetail/${product.id}`}>
+                <img src={product.img} alt="" className="w-32 rounded-md" />
+              </Link>
               <div className="ml-5 ">
                 <div className="flex flex-col">
                   <Typography variant="h4">{product.title}</Typography>
