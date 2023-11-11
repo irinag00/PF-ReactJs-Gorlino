@@ -1,13 +1,15 @@
 import { BiSearch } from "react-icons/bi";
 import CartWidget from "../../common/cartWidget/CartWidget";
 import { Outlet, Link } from "react-router-dom";
+import { useState } from "react";
+import { Typography } from "@material-tailwind/react";
 const Navbar = () => {
   return (
     <>
       <header className="bg-white shadow-md w-full">
         <nav className=" sticky top-0">
           <div className="container hidden lg:block h-full">
-            <div className="md:px-10 py-4 px-7 md:flex justify-between items-center p-4">
+            <div className="md:px-10 py-4 px-7 md:flex justify-between items-center">
               <Link to="/">
                 <div className="flex items-center">
                   <img
@@ -17,32 +19,41 @@ const Navbar = () => {
                   />
                 </div>
               </Link>
-              <ul className="md:flex md:items-center gap-3">
-                <li className="md:ml-8 text-lg ">
+              <ul className="md:flex md:items-center flex items-center justify-center gap-3">
+                <li className="">
                   <Link to="/category/remera">
-                    <div className="text-black-800 font-bold hover:text-pinkLogo duration-500">
+                    <Typography
+                      variant="h6"
+                      className="text-black-800 font-bold hover:text-pinkLogo duration-500"
+                    >
                       Remeras & Tops
-                    </div>
+                    </Typography>
                   </Link>
                 </li>
-                <li className="md:ml-8 text-lg">
+                <li className="md:ml-8">
                   <Link to="/category/vestido">
-                    <div className="text-black-800 font-bold hover:text-pinkLogo duration-500">
+                    <Typography
+                      variant="h6"
+                      className="text-black-800 font-bold hover:text-pinkLogo duration-500"
+                    >
                       Vestidos
-                    </div>
+                    </Typography>
                   </Link>
                 </li>
                 <li className="md:ml-8 text-lg">
                   <Link to="/category/pantalon">
-                    <div className="text-black-800 font-bold hover:text-pinkLogo duration-500">
+                    <Typography
+                      variant="h6"
+                      className="text-black-800 font-bold hover:text-pinkLogo duration-500"
+                    >
                       Pantalones
-                    </div>
+                    </Typography>
                   </Link>
                 </li>
               </ul>
               <div className="flex justify-between items-end md:flex">
                 <div className="relative w-full max-w-[400px] mr-3">
-                  <input
+                  {/* <input
                     className="bg-[#f2f3f5] border-none outline-none px-6 py-3 rounded-[30px] w-full"
                     type="text"
                     placeholder="Buscar un producto..."
@@ -50,7 +61,7 @@ const Navbar = () => {
                   <BiSearch
                     className="absolute top-0 right-0 mt-4 mr-5 text-gray-500"
                     size={20}
-                  />
+                  /> */}
                 </div>
                 <div className="flex">
                   <div className="icon_wrapper relative">

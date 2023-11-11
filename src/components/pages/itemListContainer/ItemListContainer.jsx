@@ -27,7 +27,6 @@ const ItemListContainer = () => {
         <SkeletonComponent />
       ) : (
         <>
-          <BreadcrumbsComponent categoryName={categoryName} />
           <ItemList items={items} />
         </>
       )}
