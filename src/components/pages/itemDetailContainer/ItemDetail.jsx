@@ -3,6 +3,7 @@ import {
   CardHeader,
   CardBody,
   Typography,
+  Chip,
 } from "@material-tailwind/react";
 import CounterContainer from "../../common/counter/CounterContainer";
 import { BsCheckLg } from "react-icons/bs";
@@ -39,6 +40,10 @@ const ItemDetail = ({ productSelected, onAdd, initial }) => {
             <Typography color="gray" className="mb-4 font-normal">
               <span></span>
               {productSelected.description}
+            </Typography>
+            <Typography color="gray" className="mb-4 font-normal flex">
+              Color:
+              <Chip className="ml-2" color={productSelected.color} size="lg" />
             </Typography>
             <div className="">
               <Typography

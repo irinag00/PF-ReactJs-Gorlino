@@ -6,11 +6,17 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-const Checkout = ({ handleChange, handleSubmit, errors, cart, total }) => {
-  let shipping = 2000;
+const Checkout = ({
+  handleChange,
+  handleSubmit,
+  errors,
+  cart,
+  total,
+  shipping,
+}) => {
   return (
-    <div className="container flex justify-center mt-10">
-      <Card className="w-full items-center justify-center">
+    <div className="container flex justify-center mt-10 mb-10">
+      <Card className="w-full items-center justify-center py-3">
         <CardBody className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
           <div className="justify-center">
             <form
@@ -33,6 +39,7 @@ const Checkout = ({ handleChange, handleSubmit, errors, cart, total }) => {
                     className="flex flex-col font-normal"
                   >
                     {errors.name}
+                    <span></span>
                   </Typography>
                 </div>
                 <div>
@@ -49,6 +56,7 @@ const Checkout = ({ handleChange, handleSubmit, errors, cart, total }) => {
                     className="flex flex-col font-normal"
                   >
                     {errors.lastName}
+                    <span></span>
                   </Typography>
                 </div>
               </div>
@@ -65,6 +73,7 @@ const Checkout = ({ handleChange, handleSubmit, errors, cart, total }) => {
                 className="flex font-normal"
               >
                 {errors.email}
+                <span></span>
               </Typography>
               <Input
                 label="Provincia"
@@ -78,6 +87,7 @@ const Checkout = ({ handleChange, handleSubmit, errors, cart, total }) => {
                 className="flex font-normal"
               >
                 {errors.province}
+                <span></span>
               </Typography>
               <div className="flex gap-1">
                 <div>
@@ -94,6 +104,7 @@ const Checkout = ({ handleChange, handleSubmit, errors, cart, total }) => {
                     className="flex font-normal"
                   >
                     {errors.city}
+                    <span></span>
                   </Typography>
                 </div>
                 <div>
@@ -110,6 +121,7 @@ const Checkout = ({ handleChange, handleSubmit, errors, cart, total }) => {
                     className="flex font-normal"
                   >
                     {errors.postcode}
+                    <span></span>
                   </Typography>
                 </div>
               </div>
@@ -125,6 +137,7 @@ const Checkout = ({ handleChange, handleSubmit, errors, cart, total }) => {
                 className="flex font-normal"
               >
                 {errors.direction}
+                <span></span>
               </Typography>
               <Button className="color-pinkLogo" type="submit">
                 Comprar

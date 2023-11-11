@@ -38,15 +38,19 @@ const ProductCard = ({ item }) => {
             </Typography>
           </CardBody>
           <CardFooter className="pt-0 flex mb-2 md:flex justify-between items-center justify-center">
-            <Link to={`/itemDetail/${item.id}`}>
-              <Button
-                ripple={true}
-                fullWidth={true}
-                className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
-              >
-                Ver detalle
-              </Button>
-            </Link>
+            {item.stock > 0 ? (
+              <Link to={`/itemDetail/${item.id}`}>
+                <Button
+                  ripple={true}
+                  fullWidth={true}
+                  className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+                >
+                  Ver detalle
+                </Button>
+              </Link>
+            ) : (
+              <Button disabled>Sin Stock</Button>
+            )}
           </CardFooter>
         </Card>
       </div>

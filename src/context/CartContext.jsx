@@ -7,7 +7,7 @@ const CartContextComponent = ({ children }) => {
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
-
+  const shipping = 2000;
   const addToCart = (product) => {
     let exist = isInCart(product.id);
 
@@ -71,6 +71,7 @@ const CartContextComponent = ({ children }) => {
     deleteProductById,
     getTotalPrice,
     getTotalQuantity,
+    shipping,
   };
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;
 };
