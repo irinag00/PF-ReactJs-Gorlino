@@ -4,7 +4,7 @@ import { BsFillTrashFill, BsCheckLg } from "react-icons/bs";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { BiSolidShoppingBags } from "react-icons/bi";
 
-const Cart = ({ cart, clearCart, deleteProductById, total }) => {
+const Cart = ({ cart, clearCartWithAlert, deleteProductById, total }) => {
   return (
     <div className="container">
       {cart.length > 0 && (
@@ -19,7 +19,7 @@ const Cart = ({ cart, clearCart, deleteProductById, total }) => {
               ripple={true}
               fullWidth={false}
               className="shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
-              onClick={clearCart}
+              onClick={clearCartWithAlert}
             >
               <BsFillTrashFill size={15} />
             </Button>
