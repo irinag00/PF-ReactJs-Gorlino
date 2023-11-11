@@ -2,10 +2,24 @@ import { BiSearch, BiMenu } from "react-icons/bi";
 import { FaTimes } from "react-icons/fa";
 import CartWidget from "../../common/cartWidget/CartWidget";
 import { Outlet, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Typography } from "@material-tailwind/react";
+import { db } from "../../../firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 const MobNavbar = () => {
   const [open, setOpen] = useState(false);
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    const categoriesCollection = collection(db, "categories");
+    getDocs(categoriesCollection)
+      .then((response) => {
+        let categoriesDataBase = response.docs.map((category) => {
+          return { ...category.data(), id: category.id };
+        });
+        setCategories(categoriesDataBase);
+      })
+      .catch((error) => console.log(error));
+  }, []);
   const handleMenu = () => {
     setOpen((prev) => !prev);
   };
@@ -45,32 +59,25 @@ const MobNavbar = () => {
             <div className="lg:hidden">
               <div className="ox-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <ul className="text-black-800 hover:bg-gray 700 hover:text-gray block px-3 py-2 rounded-md text-base font-medium">
-                  <li className="md:ml-8 text-lg ">
+                  <li className="md:ml-8 text-lg m-3">
                     <Link to="/">
                       <Typography className="text-black-800 font-bold hover:text-pinkLogo duration-500">
                         Inicio
                       </Typography>
                     </Link>
-                    <Link to="/category/remera">
-                      <Typography className="text-black-800 font-bold hover:text-pinkLogo duration-500">
-                        Remeras & Tops
-                      </Typography>
-                    </Link>
                   </li>
-                  <li className="md:ml-8 text-lg">
-                    <Link to="/category/vestido">
-                      <Typography className="text-black-800 font-bold hover:text-pinkLogo duration-500">
-                        Vestidos
-                      </Typography>
-                    </Link>
-                  </li>
-                  <li className="md:ml-8 text-lg">
-                    <Link to="/category/pantalon">
-                      <Typography className="text-black-800 font-bold hover:text-pinkLogo duration-500">
-                        Pantalones
-                      </Typography>
-                    </Link>
-                  </li>
+                  {categories.map((category) => (
+                    <li key={category.id} className="md:ml-8 text-lg m-3">
+                      <Link to={category.path}>
+                        <Typography
+                          variant="h6"
+                          className="text-black-800 font-bold hover:text-pinkLogo duration-500"
+                        >
+                          {category.name}
+                        </Typography>
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
