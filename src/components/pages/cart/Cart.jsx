@@ -1,55 +1,101 @@
 import { Link } from "react-router-dom";
-import { Button } from "@material-tailwind/react";
-import { BsFillTrashFill } from "react-icons/bs";
+import { Button, Typography, Tooltip } from "@material-tailwind/react";
+import { BsFillTrashFill, BsCheckLg } from "react-icons/bs";
+import { RiErrorWarningLine } from "react-icons/ri";
 
 const Cart = ({ cart, clearCart, deleteProductById, total }) => {
   return (
     <div className="container">
-      <strong className="flex items-center justify-center mt-10">
-        Estoy en el carrito
-      </strong>
+      <div className="flex flex-row justify-between text-center">
+        <Typography variant="h3" className="text-pinkLogo text-center my-3">
+          Productos
+        </Typography>
+        <Tooltip content="Eliminar todos los productos del carrito">
+          <Button
+            variant="text"
+            ripple={true}
+            fullWidth={false}
+            className="shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+            onClick={clearCart}
+          >
+            <BsFillTrashFill size={15} />
+          </Button>
+        </Tooltip>
+      </div>
       {cart.map((product) => {
         return (
-          <div key={product.id} className="border-2">
-            <h2>{product.title}</h2>
-            <h3>{product.price}</h3>
-            <h3>cantidad: {product.quantity}</h3>
-            <div className="flex">
-              <Button
-                color="red"
-                ripple={true}
-                fullWidth={false}
-                className="text-white shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100 flex items-center justify-center"
-                onClick={() => deleteProductById(product.id)}
-              >
-                <BsFillTrashFill /> Eliminar
-              </Button>
+          <div
+            key={product.id}
+            className="relative border-t border-blue-gray-50 py-1"
+          >
+            <div className="flex my-3 ">
+              <img src={product.img} alt="" className="w-32 rounded-md" />
+              <div className="ml-5 ">
+                <div className="flex flex-col">
+                  <Typography variant="h4">{product.title}</Typography>
+                  <Typography variant="h6" color="gray">
+                    Detalles del producto
+                  </Typography>
+                  <Typography color="gray">
+                    Categoría: {product.category}
+                  </Typography>
+                  <Typography color="gray" className="flex items-center">
+                    Stock disponible: {product.stock}{" "}
+                    <BsCheckLg className="text-green-600" />
+                  </Typography>
+                  <Typography color="gray">
+                    Cantidad: {product.quantity}
+                  </Typography>
+                </div>
+                <Typography color="gray" variant="h5" className="m-1">
+                  {" "}
+                  ${product.price}
+                </Typography>
+                <div className="absolute bottom-0 right-0">
+                  <Tooltip content="Eliminar este producto del carrito">
+                    <Button
+                      variant="text"
+                      ripple={true}
+                      fullWidth={false}
+                      className="shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100 rounded-full flex items-end"
+                      onClick={() => deleteProductById(product.id)}
+                    >
+                      <BsFillTrashFill size={15} />
+                    </Button>
+                  </Tooltip>
+                </div>
+              </div>
+              <div className=" absolute bottom-30 right-0 md:flex"></div>
             </div>
           </div>
         );
       })}
-      <div>
-        <h4> El total a pagar es de: ${total}</h4>
+      <div className="border-t border-blue-gray-50 py-1 flex justify-between mt-3 ">
+        <div className="my-3">
+          <Typography variant="h5" className="text-left">
+            Subtotal
+          </Typography>
+          <Typography
+            color="gray"
+            className="text-left text-blue-gray-500 flex items-center"
+          >
+            El envío se calculará al finalizar la compra.
+          </Typography>
+        </div>
+        <Typography variant="h5" className="text-center my-3">
+          ${total}
+        </Typography>
       </div>
-      <div className="flex items-center justify-center mt-5 gap-3">
+      <Link to="/checkout">
         <Button
           ripple={true}
-          fullWidth={false}
-          className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100 flex items-center justify-center"
-          onClick={clearCart}
+          fullWidth={true}
+          className=" flex items-center justify-center"
         >
-          Limpiar Carrito
+          Finalizar Compra
         </Button>
-        <Link to="/checkout">
-          <Button
-            ripple={true}
-            fullWidth={false}
-            className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100 flex items-center justify-center"
-          >
-            Finalizar Compra
-          </Button>
-        </Link>
-      </div>
+      </Link>
+      <div className="flex items-center justify-center mt-5 gap-3"></div>
     </div>
   );
 };

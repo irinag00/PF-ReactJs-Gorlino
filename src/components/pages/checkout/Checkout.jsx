@@ -3,12 +3,10 @@ import {
   CardBody,
   Button,
   Input,
-  CardHeader,
   Typography,
-  Select,
-  Option,
 } from "@material-tailwind/react";
-const Checkout = ({ handleChange, handleSubmit, provincias, errors }) => {
+const Checkout = ({ handleChange, handleSubmit, errors, cart, total }) => {
+  let shipping = 2000;
   return (
     <div className="container flex justify-center mt-10">
       <Card className="w-full items-center justify-center">
@@ -67,32 +65,53 @@ const Checkout = ({ handleChange, handleSubmit, provincias, errors }) => {
               >
                 {errors.email}
               </Typography>
-              <Select
-                id="province"
-                name="province"
-                label="Provincia"
-                onChange={handleChange}
-              >
-                {provincias.map((provincia) => (
-                  <Option key={provincia.id} value={provincia.nombre}>
-                    <div className="text-left">{provincia.nombre}</div>
-                  </Option>
-                ))}
-                ;
-              </Select>
               <Input
-                label="Ciudad"
-                name="city"
+                label="Provincia"
+                name="province"
                 onChange={handleChange}
-                error={errors.city ? true : false}
+                error={errors.province ? true : false}
               />
               <Typography
                 variant="small"
                 color="red"
                 className="flex font-normal"
               >
-                {errors.city}
+                {errors.province}
               </Typography>
+              <div className="flex gap-1">
+                <div>
+                  <Input
+                    label="Ciudad"
+                    name="city"
+                    containerProps={{ className: "min-w-[72px]" }}
+                    onChange={handleChange}
+                    error={errors.city ? true : false}
+                  />
+                  <Typography
+                    variant="small"
+                    color="red"
+                    className="flex font-normal"
+                  >
+                    {errors.city}
+                  </Typography>
+                </div>
+                <div>
+                  <Input
+                    label="Código Postal"
+                    name="postcode"
+                    containerProps={{ className: "min-w-[72px]" }}
+                    onChange={handleChange}
+                    error={errors.postcode ? true : false}
+                  />
+                  <Typography
+                    variant="small"
+                    color="red"
+                    className="flex font-normal"
+                  >
+                    {errors.postcode}
+                  </Typography>
+                </div>
+              </div>
               <Input
                 label="Dirección"
                 name="direction"
@@ -111,32 +130,52 @@ const Checkout = ({ handleChange, handleSubmit, provincias, errors }) => {
               </Button>
             </form>
           </div>
-          <div className=" flex flex-col gap-6">
+          <div className=" flex flex-col gap-6 bg-gray">
             <Typography variant="h3" className="text-pinkLogo">
               Resumen de compra
             </Typography>
-            <div className="border-t border-blue-gray-50 py-2 ">
-              <div className="flex justify-between">
-                <Typography variant="h5">Producto</Typography>
-                <Typography className="text-end items-end order-last">
-                  $5000
-                </Typography>
+            <div className="">
+              <div className="">
+                {cart.map((product) => {
+                  return (
+                    <div
+                      key={product.id}
+                      className="flex justify-between border-t border-blue-gray-50 py-1 "
+                    >
+                      <img
+                        className="w-20 rounded-md mt-2"
+                        src={product.img}
+                        alt=""
+                      />
+                      <div className="">
+                        <Typography variant="h6" className="items-center">
+                          {product.title} x {product.quantity}
+                        </Typography>
+                        <div className="text-end items-end order-last">
+                          <Typography>
+                            ${product.price * product.quantity}
+                          </Typography>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-              <div className="flex justify-between">
-                <Typography>Envío</Typography>
+              <div className="flex justify-between mt-3">
+                <Typography variant="h6">Envío</Typography>
                 <Typography className="text-end items-end order-last">
-                  $1200
+                  ${shipping}
                 </Typography>
               </div>
             </div>
-            <div className="border-t border-blue-gray-50 py-2 ">
+            <div className="border-t border-blue-gray-100 py-2 ">
               <div className="flex justify-between">
                 <Typography variant="h5">Total</Typography>
                 <Typography
                   variant="h5"
                   className="text-end items-end order-last"
                 >
-                  $6200
+                  $ {total + shipping}
                 </Typography>
               </div>
             </div>

@@ -1,18 +1,12 @@
-import { useEffect, useState } from "react";
 import Checkout from "./Checkout";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { CartContext } from "../../../context/CartContext";
+import { useContext } from "react";
 
 const CheckoutCointainer = () => {
-  const [provincias, setProvincias] = useState([]);
-  useEffect(() => {
-    fetch(
-      "https://apis.datos.gob.ar/georef/api/provincias?orden=nombre&aplanar=true&campos=estandar&exacto=true"
-    )
-      .then((response) => response.json())
-      .then((dataProvince) => setProvincias(dataProvince.provincias));
-  }, []);
-
+  const { cart, getTotalPrice } = useContext(CartContext);
+  let total = getTotalPrice();
   const { handleChange, handleSubmit, errors } = useFormik({
     initialValues: {
       name: "",
@@ -21,6 +15,7 @@ const CheckoutCointainer = () => {
       province: "",
       city: "",
       direction: "",
+      postcode: "",
     },
     onSubmit: (data) => {
       console.log(data);
@@ -39,6 +34,10 @@ const CheckoutCointainer = () => {
       email: Yup.string()
         .email("El email no parece ser válido.")
         .required("El campo es obligatorio"),
+      province: Yup.string("Solo se permiten caracteres alfabéticos")
+        .required("El campo es obligatorio")
+        .min(4, "Debe contener al menos 4 caracteres")
+        .max(20, "No debe superar los 20 caracteres"),
       city: Yup.string("Solo se permiten caracteres alfabéticos")
         .required("El campo es obligatorio")
         .min(4, "Debe contener al menos 4 caracteres")
@@ -47,6 +46,9 @@ const CheckoutCointainer = () => {
         .required("El campo es obligatorio")
         .min(4, "Debe contener al menos 4 caracteres")
         .max(20, "No debe superar los 20 caracteres"),
+      postcode: Yup.string()
+        .required("El campo es obligatorio")
+        .min(4, "Debe contener al menos 4 caracteres"),
     }),
   });
 
@@ -54,8 +56,9 @@ const CheckoutCointainer = () => {
     <Checkout
       handleChange={handleChange}
       handleSubmit={handleSubmit}
-      provincias={provincias}
       errors={errors}
+      cart={cart}
+      total={total}
     />
   );
 };

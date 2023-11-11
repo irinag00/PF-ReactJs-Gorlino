@@ -41,16 +41,17 @@ const CartContextComponent = ({ children }) => {
   };
   //obtener el total del carrito
   const getTotalPrice = () => {
-    let total = cart.reduce((acc, element) => {
-      return acc + element.price * element.quantity;
+    let total = cart.reduce((acc, product) => {
+      return acc + product.price * product.quantity;
     }, 0);
 
     return total;
   };
+
   //obtener cantidad de elementos
   const getTotalQuantity = () => {
-    let total = cart.reduce((acc, element) => {
-      return acc + element.quantity;
+    let total = cart.reduce((acc, product) => {
+      return acc + product.quantity;
     }, 0);
     return total;
   };
