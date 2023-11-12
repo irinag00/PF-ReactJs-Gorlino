@@ -11,14 +11,12 @@ const MobNavbar = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     const categoriesCollection = collection(db, "categories");
-    getDocs(categoriesCollection)
-      .then((response) => {
-        let categoriesDataBase = response.docs.map((category) => {
-          return { ...category.data(), id: category.id };
-        });
-        setCategories(categoriesDataBase);
-      })
-      .catch((error) => console.log(error));
+    getDocs(categoriesCollection).then((response) => {
+      let categoriesDataBase = response.docs.map((category) => {
+        return { ...category.data(), id: category.id };
+      });
+      setCategories(categoriesDataBase);
+    });
   }, []);
   const handleMenu = () => {
     setOpen((prev) => !prev);

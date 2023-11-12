@@ -31,14 +31,12 @@ const CheckoutCointainer = () => {
       postcode: "",
     },
     onSubmit: (data) => {
-      console.log(data);
       let order = {
         buyer: data,
         items: cart,
         total: totalShipping,
         date: serverTimestamp(),
       };
-      console.log(order);
 
       const ordersCollection = collection(db, "orders");
       addDoc(ordersCollection, order).then((response) =>

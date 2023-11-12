@@ -6,22 +6,30 @@ import { Typography } from "@material-tailwind/react";
 import { db } from "../../../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 const Navbar = () => {
+  const [isActive, setIsActive] = useState(true);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     const categoriesCollection = collection(db, "categories");
-    getDocs(categoriesCollection)
-      .then((response) => {
-        let categoriesDataBase = response.docs.map((category) => {
-          return { ...category.data(), id: category.id };
-        });
-        setCategories(categoriesDataBase);
-      })
-      .catch((error) => console.log(error));
+    getDocs(categoriesCollection).then((response) => {
+      let categoriesDataBase = response.docs.map((category) => {
+        return { ...category.data(), id: category.id };
+      });
+      setCategories(categoriesDataBase);
+    });
   }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.scrollY > 60 ? setIsActive(true) : setIsActive(false);
+    });
+  });
   return (
     <>
-      <header className="bg-white shadow-md w-full">
-        <nav className=" sticky top-0">
+      <header
+        className={`${
+          isActive ? "bg-white shadow-md" : "bg-none shadow-md py-2"
+        } fixed w-full z-10 transition-all`}
+      >
+        <nav className="">
           <div className="container hidden lg:block h-full">
             <div className="md:px-10 py-4 px-7 md:flex justify-between items-center">
               <Link to="/">

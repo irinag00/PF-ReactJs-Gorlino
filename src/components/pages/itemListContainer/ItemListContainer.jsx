@@ -4,8 +4,6 @@ import { useParams } from "react-router-dom";
 import SkeletonComponent from "../../common/skeleton/SkeletonComponent";
 import { getDocs, collection, query, where, addDoc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
-import { Button } from "@material-tailwind/react";
-import { products } from "../../../productsMock";
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
   const { categoryName } = useParams();
