@@ -2,6 +2,7 @@ import Navbar from "./navbar/Navbar";
 import Footer from "./footer/Footer";
 import { Outlet } from "react-router-dom";
 import MobNavbar from "./navbar/MobNavbar";
+import Hero from "./hero/Hero";
 
 const Layout = () => {
   return (

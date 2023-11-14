@@ -1,13 +1,37 @@
 import { Link } from "react-router-dom";
 import "../hero/Hero.css";
+import { Button, Typography } from "@material-tailwind/react";
 const Hero = () => {
   return (
-    <section className="hero shadow-md">
-      <div className="hero-content container">
-        <div className="flex h-full items-center justify-center">
-          <div className="text-white">
-            <h2 className="mb-4 text-4xl font-semibold">Obssesion</h2>
-            <h4 className="mb-6 text-xl font-semibold max-w-[800px]">
+    <section
+      className="hero shadow-md justify-start
+    hidden md:block"
+    >
+      <div className="flex h-full items-center justify-start container text-container">
+        <div className=" flex flex-col justify-start text-container">
+          <Typography
+            color="black"
+            className="text-2xl font-semibold md:text-4xl"
+          >
+            NEW SEASON
+          </Typography>
+          <Typography className="text-5xl font-semibold text-pinkLogo md:text-8xl">
+            ¡SUMMER!
+          </Typography>
+          <Typography
+            variant="lead"
+            color="black"
+            className=" md:max-w-[500px] sm:none mt-4"
+          >
+            Somos el local mayorista y minorista más grande del país, y queremos
+            seguir creciendo para ofrecerles siempre LO MEJOR.
+          </Typography>
+          <Link to="/">
+            <Button variant="gradient" color="pink" className="mt-4 mb-4">
+              Compra ahora
+            </Button>
+          </Link>
+          {/* <h4 className="mb-6 text-xl font-semibold max-w-[800px]">
               Somos el local mayorista y minorista más grande del país, y
               queremos seguir creciendo para ofrecerles siempre LO MEJOR.
             </h4>
@@ -23,10 +47,8 @@ const Hero = () => {
               >
                 Conoce todos nuestros productos
               </button>
-            </Link>
-          </div>
+             */}
         </div>
-        <div></div>
       </div>
     </section>
   );

@@ -6,7 +6,7 @@ import { Typography } from "@material-tailwind/react";
 import { db } from "../../../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 const Navbar = () => {
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     const categoriesCollection = collection(db, "categories");
@@ -26,7 +26,7 @@ const Navbar = () => {
     <>
       <header
         className={`${
-          isActive ? "bg-white shadow-md" : "bg-none shadow-md py-2"
+          isActive ? "bg-white shadow-md" : "shadow-md py-2"
         } fixed w-full z-10 transition-all`}
       >
         <nav className="">

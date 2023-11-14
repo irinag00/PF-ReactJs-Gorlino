@@ -1,24 +1,15 @@
 .hero {
   position: relative;
-  background-image: url("https://res.cloudinary.com/dsdmjhkms/image/upload/v1699752171/y3fkijpr2xdcbnes9abu.jpg");
+  background-image: url("https://res.cloudinary.com/dsdmjhkms/image/upload/v1700001005/yrt93iozdc7auzue6mqw.png");
   background-size: cover;
   background-position: center;
-  height: 500px;
+  width: 100%;
+  height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
 }
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.hero-content {
-  text-align: center;
-  z-index: 1; /* Asegura que el contenido esté sobre la capa de superposición */
+.text-container {
+  width: 50%;
 }
